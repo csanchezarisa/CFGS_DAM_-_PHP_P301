@@ -1,13 +1,13 @@
 @extends('master.master')
 
 @section('title')
-    Concesionario Sánchez - Inicio
+    Top mejores webs - Inicio
 @endsection
 
 @section('header')
-  <h1>Concesionario Sánchez</h1>
-  <h2>Donde tus sueños cobran vida</h2>
-  <h6>y se cobran...</h6>
+  <h1>Mejores webs de internet</h1>
+  <h2>Disfruta de las mejores webs de internet</h2>
+  <h6>no solo de las dirigidas a adultos...</h6>
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
         <div class="col-sm-12">
             <div class="alert alert-success alert-dismissible fade show">
               <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>¡Éxito!</strong> Se ha eliminado el coche correctamente.
+              <strong>¡Éxito!</strong> Se ha eliminado la web correctamente.
             </div>
         </div>
       </div>
@@ -27,12 +27,12 @@
         <div class="col-sm-12">
           <div class="alert alert-danger alert-dismissible fade show">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>¡Error!</strong> No se ha podido eliminar el coche. Pruébalo de nuevo.
+            <strong>¡Error!</strong> No se ha podido eliminar la web. Pruébalo de nuevo.
           </div>
         </div>
       </div>
     @endif
     <div class="text-center">
-      <img src="https://i.pinimg.com/originals/6e/c8/fa/6ec8fa35800b339aa060d70d67edcf03.gif" alt="Running Car" width="75%" />
+      <img src="https://media1.giphy.com/media/L8K62iTDkzGX6/giphy.gif" alt="Web" width="75%" />
     </div>
 @endsection

@@ -15,7 +15,7 @@ use App\Http\Controllers\WebController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingpage');
 });
 
 Route::resource('/web', WebController::class);

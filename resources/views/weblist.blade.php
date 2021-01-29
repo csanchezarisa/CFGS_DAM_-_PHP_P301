@@ -1,7 +1,7 @@
 @extends('master.master')
 
 @section('title')
-    Listado de coches disponibles
+    Listado de webs registradas
 @endsection
 
 @section('active-vercoches')
@@ -9,8 +9,8 @@
 @endsection
 
 @section('header')
-    <h1>Coches disponibles</h1>
-    <h2>Listado con los coches disponibles</h2>
+    <h1>Webs registradas</h1>
+    <h2>Listado con las webs registradas</h2>
     <h5>Click para ver información, doble click para editar</h5>
 @endsection
 
@@ -25,9 +25,12 @@
 
         <!-- BUCLE QUE PINTA LES LINIES DE LA TAULA AMB LA INFORMACIÓ DELS COTXES -->
         @foreach ($webs as $web)
-            <tr onclick="cocheSeleccionado({{ $web->id }})" ondblclick="editarCoche({{ $web->id }})">
+            <tr onclick="webSeleccionada({{ $web->id }})" ondblclick="editarWeb({{ $web->id }})">
                 <td>{{ $web->id }}</td>
-                <td>{{ $web->url }}</td>
+                <td>
+                    <a href="{{ $web->url }}" target="_blank">
+                        {{ $web->url }}</td>
+                    </a>
                 <td>{{ $web->domain }}</td>
                 <td>{{ $web->description }}</td>
             </tr>
@@ -35,12 +38,12 @@
 
     </table>
     <script>
-        function cocheSeleccionado(id) {
-            window.location = "/coche/" + id;
+        function webSeleccionada(id) {
+            window.location = "/web/" + id;
         }
 
-        function editarCoche(id) {
-            window.location = "/coche/" + id + "/edit";
+        function editarWeb(id) {
+            window.location = "/web/" + id + "/edit";
         }
     </script>
 @endsection

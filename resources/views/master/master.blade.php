@@ -35,10 +35,10 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link @yield('active-vercoches')" href="/coche">Ver coches</a>
+              <a class="nav-link @yield('active-vercoches')" href="/web">Ver web</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link @yield('active-insertarcoche')" href="/coche/create">Insertar coche</a>
+              <a class="nav-link @yield('active-insertarcoche')" href="/web/create">Insertar web</a>
             </li>
           </ul>
           <form action="/coche/search/" method="GET" class="form-inline my-2 my-lg-2">
