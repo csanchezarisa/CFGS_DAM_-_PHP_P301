@@ -13,6 +13,6 @@ class WebSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\web::factory(10)->create();
     }
 }

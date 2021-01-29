@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\web;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
 class WebFactory extends Factory
 {
@@ -22,7 +23,9 @@ class WebFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'url' => $this->faker->url,
+            'name' => $this->faker->domainWord,
+            'description' => $this->faker->paragraph
         ];
     }
 }
