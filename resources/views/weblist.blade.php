@@ -18,18 +18,18 @@
     <table class="table table-responsive-sm table-striped table-hover">
         <tr class="text-center">
             <th>#</th>
-            <th>Creador</th>
-            <th>Modelo</th>
-            <th>Fecha producción</th>
+            <th>URL</th>
+            <th>Dominio</th>
+            <th>Descripción</th>
         </tr>
 
         <!-- BUCLE QUE PINTA LES LINIES DE LA TAULA AMB LA INFORMACIÓ DELS COTXES -->
-        @foreach ($coches as $coche)
-            <tr onclick="cocheSeleccionado({{ $coche->id }})" ondblclick="editarCoche({{ $coche->id }})">
-                <td>{{ $coche->id }}</td>
-                <td>{{ $coche->make }}</td>
-                <td>{{ $coche->model }}</td>
-                <td>{{ $coche->produced_on }}</td>
+        @foreach ($webs as $web)
+            <tr onclick="cocheSeleccionado({{ $web->id }})" ondblclick="editarCoche({{ $web->id }})">
+                <td>{{ $web->id }}</td>
+                <td>{{ $web->url }}</td>
+                <td>{{ $web->domain }}</td>
+                <td>{{ $web->description }}</td>
             </tr>
         @endforeach
 

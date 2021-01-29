@@ -14,7 +14,8 @@ class WebController extends Controller
      */
     public function index()
     {
-        //
+        $webs = web::all();
+        return \view('weblist')->with('webs', $webs);
     }
 
     /**

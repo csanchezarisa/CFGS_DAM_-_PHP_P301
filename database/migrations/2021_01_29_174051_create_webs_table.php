@@ -16,7 +16,7 @@ class CreateWebsTable extends Migration
         Schema::create('webs', function (Blueprint $table) {
             $table->id();
             $table->string("url");
-            $table->string("name");
+            $table->string("domain");
             $table->string("description");
             $table->timestamps();
         });

@@ -24,7 +24,7 @@ class WebFactory extends Factory
     {
         return [
             'url' => $this->faker->url,
-            'name' => $this->faker->domainWord,
+            'domain' => $this->faker->domainWord,
             'description' => $this->faker->paragraph
         ];
     }
