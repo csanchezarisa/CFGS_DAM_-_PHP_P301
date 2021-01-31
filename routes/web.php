@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::resource('/web', WebController::class);
+
+Route::get('/web/search/{id}', [WebController::class, 'search']);

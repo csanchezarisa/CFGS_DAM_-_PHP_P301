@@ -75,6 +75,11 @@ class WebController extends Controller
 
     }
 
+    public function search(Request $request) {
+        $web = web::find($request['id']);
+        return view('web')->with('web', $web);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
