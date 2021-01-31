@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class web extends Model
 {
+    protected $fillable = ['domain', 'url', 'description'];
     use HasFactory;
 }
