@@ -25,7 +25,7 @@ class WebController extends Controller
      */
     public function create()
     {
-        //
+        return \view('webinsert');
     }
 
     /**
@@ -36,7 +36,14 @@ class WebController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        try {
+            $web = web::create($request->all());
+            return \redirect("/web/$web->id");
+        }
+        catch(\Exception $e) {
+            return \redirect("/web/create")->with("errorCreating", true);
+        }
     }
 
     /**
@@ -45,9 +52,27 @@ class WebController extends Controller
      * @param  \App\Models\web  $web
      * @return \Illuminate\Http\Response
      */
-    public function show(web $web)
+    public function show($id, Request $request)
     {
-        //
+
+        $web;
+
+        // Comprueba si se está pasando el parámetro ID. Sino, lo recoje de la request (Cuando se llama desde un formulario)
+        if (!is_numeric($id)) {
+            $id = $request['id'];
+        }
+
+        // Se busca el coche con el id querido
+        $web = web::find($id);
+
+        // Se se ha encontrado algún coche, se devuelve la vista con la info. Sino de devuelve una con un error
+        if (isset($web->id)) {
+            return view('web')->with('web', $web);
+        }
+        else {
+            return view('web', ['error' => true, 'id' => $id]);
+        }
+
     }
 
     /**

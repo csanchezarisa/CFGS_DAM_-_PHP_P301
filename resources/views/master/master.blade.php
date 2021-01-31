@@ -41,7 +41,7 @@
               <a class="nav-link @yield('active-insertarcoche')" href="/web/create">Insertar web</a>
             </li>
           </ul>
-          <form action="/coche/search/" method="GET" class="form-inline my-2 my-lg-2">
+          <form action="/web/search/" method="GET" class="form-inline my-2 my-lg-2">
             <input type="number" name="id" id="id" class="form-control mr-sm-2" placeholder="Buscar" required />
             <button type="submit" class="btn btn-success my-2 my-sm-0">
               <i class="fas fa-search"></i>
