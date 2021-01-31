@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link @yield('active-vercoches')" href="/web">Ver web</a>
+              <a class="nav-link @yield('active-vercoches')" href="/web">Ver webs</a>
             </li>
             <li class="nav-item">
               <a class="nav-link @yield('active-insertarcoche')" href="/web/create">Insertar web</a>

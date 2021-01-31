@@ -67,7 +67,7 @@
           <div class="card-footer">
             <p>Enlace a la web: <a href="{{ $web->url }}" target="_blank">{{ $web->url }}</a></p>
               <div class="text-right">
-                <a href="/coche/{{ $web->id }}/edit" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                <a href="/web/{{ $web->id }}/edit" class="btn btn-success"><i class="fas fa-edit"></i></a>
               </div>
           </div>
         </div>

@@ -81,9 +81,16 @@ class WebController extends Controller
      * @param  \App\Models\web  $web
      * @return \Illuminate\Http\Response
      */
-    public function edit(web $web)
+    public function edit($id)
     {
-        //
+        $web = web::find($id);
+
+        if (isset($web->id)) {
+            return view('webedit')->with('web', $web);
+        }
+        else {
+            return view('webedit', ['error' => true, 'id' => $id]);
+        }
     }
 
     /**
@@ -93,9 +100,22 @@ class WebController extends Controller
      * @param  \App\Models\web  $web
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, web $web)
+    public function update(Request $request, $id)
     {
-        //
+
+        $updated = true;
+        $web;
+
+        try {
+            $web = web::find($id);
+            $web->update($request->all());
+        }
+        catch(\Exception $e) {
+            $updated = false;
+        }
+
+        return view("web", ['updated'=> $updated])->with('web', $web);
+
     }
 
     /**
@@ -104,8 +124,21 @@ class WebController extends Controller
      * @param  \App\Models\web  $web
      * @return \Illuminate\Http\Response
      */
-    public function destroy(web $web)
+    public function destroy($id)
     {
-        //
+        
+        $deleted = true;
+
+        try {
+            $web = web::find($id);
+            $web->delete();
+        }
+        catch(\Exception $e) {
+            $deleted=false;
+            return redirect('/')->with('not_deleted', $deleted);
+        }
+
+        return redirect('/')->with('deleted', $deleted);
+
     }
 }

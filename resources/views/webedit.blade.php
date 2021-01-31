@@ -2,19 +2,19 @@
 @if (isset($error))
     
     @section('title')
-        Editar coche {{ $id }}
+        Editar web {{ $id }}
     @endsection
 
     @section('header')
-        <h1>No se puede editar el coche {{ $id }}</h1>
-        <h2>No se ha encontrado el coche</h2>
+        <h1>No se puede editar la web #{{ $id }}</h1>
+        <h2>No se ha encontrado ,a web</h2>
     @endsection
 
     @section('content')
         <div class="row">
             <div class="col-sm-12">
                 <div class="alert alert-danger fade show">
-                    <strong>¡No se puede editar!</strong> No existe ningún coche con id <strong>{{ $id }}</strong>. <a href="/coche/create" class="alert-link">Prueba a crearlo.</a>
+                    <strong>¡No se puede editar!</strong> No existe ninguna web con id <strong>#{{ $id }}</strong>. <a href="/web/create" class="alert-link">Prueba a crearla.</a>
                 </div>
             </div>
         </div>
@@ -23,50 +23,50 @@
 @else
     
     @section('title')
-        Editar coche {{ $coche->id }}
+        Editar web {{ $web->id }}
     @endsection
 
     @section('header')
-        <h1>Editar coche {{ $coche->id }}</h1>
-        <h2>Rellena el formulario para editar los datos del coche</h2>
+        <h1>Editar web #{{ $web->id }}</h1>
+        <h2>Rellena el formulario para editar los datos de la web</h2>
     @endsection
 
     @section('content')
     <div class="row">
         <div class="col-sm-6">
-            <div class="card bg-light" style="width:100%">
-              <div class="card-header text-center">
-                <img class="card-img-top" src="{{ URL::to('/') }}/images/coche.png" alt="Car image">
-                <h4 class="card-title">Coche {{ $coche->id }}</h4>
+            <div class="card bg-light text-center" style="width:100%">
+              <div class="card-header">
+                <img class="card-img-top" src="{{ URL::to('/') }}/images/favicon.png" alt="Web image">
+                <h4 class="card-title">Web #{{ $web->id }}</h4>
               </div>
               <div class="card-body">
-                <h5 class="card-text">{{ $coche->make }}</h5>
-                <p class="card-text">{{ $coche->model }}</p>
+                <h5 class="card-text">{{ $web->domain }}</h5>
+                <p class="card-text">{{ $web->description }}</p>
               </div>
               <div class="card-footer">
-                <p>Producido en: {{ $coche->produced_on }}</p>
+                <p>Enlace a la web: <a href="{{ $web->url }}" target="_blank">{{ $web->url }}</a></p>
                   <div class="text-right">
                   </div>
               </div>
             </div>
           </div>
         <div class="col-sm-6">
-            <form action="/coche/{{ $coche->id }}" method="POST" class="was-validated" style="width: 100%">
+            <form action="/web/{{ $web->id }}" method="POST" class="was-validated" style="width: 100%">
 
                 @csrf
                 @method('PUT')
 
                 <div class="form-group">
-                    <label for="creador">Creador:</label>
-                    <input type="text" name="make" id="make" class="form-control" placeholder="Creador" value="{{ $coche->make }}" required />
+                    <label for="url">URL:</label>
+                    <input type="url" name="url" id="url" class="form-control" placeholder="http://www.example.com" value="{{ $web->url }}" required />
                 </div>
                 <div class="form-group">
-                    <label for="modelo">Modelo:</label>
-                    <textarea name="model" id="model" class="form-control" placeholder="Modelo" rows="3" required>{{ $coche->model }}</textarea>
+                    <label for="domain">Dominio:</label>
+                    <input type="text" name="domain" id="domain" class="form-control" value="{{ $web->domain }}" placeholder="Dominio" required />
                 </div>
                 <div class="form-group">
-                    <label for="producido">Producido en:</label>
-                    <input type="date" name="produced_on" id="produced_on" class="form-control" value="{{ $coche->produced_on }}" required />
+                    <label for="description">Descripción:</label>
+                    <textarea name="description" id="description" class="form-control" placeholder="Descripción" rows="3" required>{{ $web->description }}</textarea>
                 </div>
 
                 <div class="row">
@@ -94,18 +94,18 @@
       
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">Eliminar coche {{ $coche->id }}</h4>
+              <h4 class="modal-title">Eliminar web <strong>#{{ $web->id }}</strong></h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
       
             <!-- Modal body -->
             <div class="modal-body">
-              ¿Estás seguro que quieres eliminar el coche <strong>{{ $coche->model }}</strong>, con id <strong>{{ $coche->id }}</strong>?
+              ¿Estás seguro que quieres eliminar la web <strong>{{ $web->domain }}</strong>, con id <strong>{{ $web->id }}</strong>?
             </div>
       
             <!-- Modal footer -->
             <div class="modal-footer">
-                <form action="/coche/{{ $coche->id }}" method="POST">
+                <form action="/web/{{ $web->id }}" method="POST">
                     @csrf
                     @method('DELETE')
 
