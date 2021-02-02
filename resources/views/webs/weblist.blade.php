@@ -15,6 +15,19 @@
 @endsection
 
 @section('content')
+
+@if (count($webs) <= 0)
+
+    <div class="row">
+        <div class="col-sm-12">
+        <div class="alert alert-danger fade show">
+            <strong>¡Error!</strong> No hay registrada ninguna web. <a href="/web/create" class="alert-link">Prueba a crear una.</a>
+        </div>
+        </div>
+    </div>
+
+@else
+
     <table class="table table-responsive-sm table-striped table-hover">
         <tr class="text-center">
             <th>Dominio</th>
@@ -32,8 +45,8 @@
                 </td>
             </tr>
         @endforeach
-
     </table>
+
     <script>
         function webSeleccionada(id) {
             window.location = "/web/" + id;
@@ -43,4 +56,6 @@
             window.location = "/web/" + id + "/edit";
         }
     </script>
+
+@endif
 @endsection
