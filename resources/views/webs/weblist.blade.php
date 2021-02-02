@@ -17,22 +17,19 @@
 @section('content')
     <table class="table table-responsive-sm table-striped table-hover">
         <tr class="text-center">
-            <th>#</th>
-            <th>URL</th>
             <th>Dominio</th>
-            <th>Descripción</th>
+            <th>URL</th>
         </tr>
 
         <!-- BUCLE QUE PINTA LES LINIES DE LA TAULA AMB LA INFORMACIÓ DELS COTXES -->
         @foreach ($webs as $web)
-            <tr onclick="webSeleccionada({{ $web->id }})" ondblclick="editarWeb({{ $web->id }})">
-                <td>{{ $web->id }}</td>
+            <tr onclick="webSeleccionada({{ $web->id }})" ondblclick="editarWeb({{ $web->id }})" role="button">
+                <td>{{ $web->domain }}</td>
                 <td>
                     <a href="{{ $web->url }}" target="_blank">
-                        {{ $web->url }}</td>
+                        {{ $web->url }}
                     </a>
-                <td>{{ $web->domain }}</td>
-                <td>{{ $web->description }}</td>
+                </td>
             </tr>
         @endforeach
 

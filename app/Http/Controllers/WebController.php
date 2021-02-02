@@ -15,7 +15,7 @@ class WebController extends Controller
     public function index()
     {
         $webs = web::all();
-        return \view('weblist')->with('webs', $webs);
+        return \view('webs.weblist')->with('webs', $webs);
     }
 
     /**
@@ -25,7 +25,7 @@ class WebController extends Controller
      */
     public function create()
     {
-        return \view('webinsert');
+        return \view('webs.webadd');
     }
 
     /**
@@ -67,7 +67,7 @@ class WebController extends Controller
 
         // Se se ha encontrado algún coche, se devuelve la vista con la info. Sino de devuelve una con un error
         if (isset($web->id)) {
-            return view('web')->with('web', $web);
+            return view('webs.web')->with('web', $web);
         }
         else {
             return view('web', ['error' => true, 'id' => $id]);
@@ -77,7 +77,7 @@ class WebController extends Controller
 
     public function search(Request $request) {
         $web = web::find($request['id']);
-        return view('web')->with('web', $web);
+        return view('webs.web')->with('web', $web);
     }
 
     /**
@@ -91,10 +91,10 @@ class WebController extends Controller
         $web = web::find($id);
 
         if (isset($web->id)) {
-            return view('webedit')->with('web', $web);
+            return view('webs.webform')->with('web', $web);
         }
         else {
-            return view('webedit', ['error' => true, 'id' => $id]);
+            return view('webs.webform', ['error' => true, 'id' => $id]);
         }
     }
 
