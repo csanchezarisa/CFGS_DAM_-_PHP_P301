@@ -1,4 +1,4 @@
-@extends('master.master')
+@extends('layouts.master')
 
 @section('title')
     Listado de webs registradas
