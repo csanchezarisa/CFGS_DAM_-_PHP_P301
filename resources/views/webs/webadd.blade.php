@@ -4,7 +4,7 @@
     Registrar nueva web
 @endsection
 
-@section('active-insertarcoche')
+@section('active-insertarwebs')
     active
 @endsection
 

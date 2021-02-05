@@ -4,7 +4,7 @@
     Listado de webs registradas
 @endsection
 
-@section('active-vercoches')
+@section('active-verwebs')
     active
 @endsection
 
